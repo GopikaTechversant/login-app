@@ -11,7 +11,10 @@ export class UserPageComponent implements OnInit {
   users = users;
   loggedInUser: any;
 
-  constructor(private router:Router,private authGuard:AuthGuard) { }
+  constructor(private router:Router,private authGuard:AuthGuard) {
+    console.log("hhefe");
+    
+   }
 
   ngOnInit(): void {
     const loggedInUser = JSON.parse(localStorage.getItem('user') as string);
@@ -27,7 +30,7 @@ export class UserPageComponent implements OnInit {
   }
   logout(): void {
     localStorage.removeItem('user');
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
   
 }

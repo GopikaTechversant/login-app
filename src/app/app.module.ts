@@ -4,7 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from './shared/shared.module';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthenticationModule } from './authentication/authentication.module';
@@ -20,7 +20,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     RouterModule,
     FormsModule,
     DashboardModule,
-    AuthenticationModule
+    AuthenticationModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

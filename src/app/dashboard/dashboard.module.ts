@@ -5,17 +5,20 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { EditComponent } from './components/edit/edit.component';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     UserPageComponent,
     AdminComponent,
-    EditComponent
+    EditComponent,
+    
 
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    SharedModule
    
   ]
 })
