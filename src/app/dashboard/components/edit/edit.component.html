@@ -1,0 +1,18 @@
+<h1>{{loggedInUser.username}}</h1>
+<!-- <h5>Edit here...</h5> -->
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input class="form-control" type="text" id="username" name="username" [(ngModel)]="user.username" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" type="email" id="email" name="email" [(ngModel)]="user.email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input class="form-control" type="password" id="password" name="password" [(ngModel)]="user.password" required>
+  </div><br>
+  <button type="submit" class="btn btn-success">Save Changes</button><span style="visibility: hidden;">hide this</span>
+  <button type="button" (click)="onCancel()" class="btn btn-dark">Cancel</button>
+</form>
