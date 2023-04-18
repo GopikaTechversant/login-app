@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-
+import { HttpClientModule } from '@angular/common/http';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 @NgModule({
@@ -21,7 +21,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     FormsModule,
     DashboardModule,
     AuthenticationModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

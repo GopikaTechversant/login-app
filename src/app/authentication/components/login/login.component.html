@@ -1,8 +1,5 @@
 <form name="login" >
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
-    </div>
+    
     <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
@@ -11,5 +8,6 @@
         <label for="password">Password</label>
         <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password" required>
     </div>
-    <button type="button" (click)="login()">Submit</button>
+    <button type="submit" (click)="login()" class="btn btn-info">Submit</button><span>give space</span>
+    <a routerLink="/signup" >Sign Up</a>
 </form>
