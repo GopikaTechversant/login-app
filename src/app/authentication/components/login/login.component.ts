@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
       return;
     }
     const users = JSON.parse(localStorage.getItem('users') as string) as User[];
+    console.log('users here',users);
+    
 
     const userExist = users.find((user: any) => user.email === this.email && user.password === this.password);
   

@@ -1,3 +1,6 @@
+
+ 
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -22,12 +25,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveDataToJsonFile() {
-    const users = JSON.parse(localStorage.getItem('users') as string) as User[];
-
-    // Save the updated user data to local storage
-    localStorage.setItem('users', JSON.stringify(users) as string);
-  }
+ 
   
   signup(): void {
     const users = JSON.parse(localStorage.getItem('users') as string) || [];
@@ -45,7 +43,7 @@ export class SignUpComponent implements OnInit {
       alert("User already registered");
     } else {
       users.push(newUser);
-      localStorage.setItem('currentUser', JSON.stringify(users) as string);
+      localStorage.setItem('users', JSON.stringify(users) as string);
       console.log("After push", users);
       this.router.navigate(['/login']);
     }

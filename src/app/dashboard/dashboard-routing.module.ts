@@ -4,9 +4,9 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { EditComponent } from './components/edit/edit.component';
 import { AdminComponent } from './components/admin/admin.component';
 const routes: Routes = [
-    {path:'',component:UserPageComponent},
     {path:'edit',component:EditComponent},
-    {path:'admin',component:AdminComponent}
+    {path:'admin',component:AdminComponent},
+    {path:'',component:UserPageComponent},
 ];
 
 @NgModule({
