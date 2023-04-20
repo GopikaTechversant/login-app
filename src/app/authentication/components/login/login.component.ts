@@ -1,7 +1,8 @@
 import { Component ,OnInit} from '@angular/core';
-// import { users } from 'src/app/user';
+import { users } from 'src/app/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/interface/user';
 
 
 @Component({
@@ -9,36 +10,35 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  username:string='';
-  email:string='';
-  password:string='';
-  users:any[]=[];
-  constructor(private router:Router,private http:HttpClient){}
-  ngOnInit(): void {
-    this.http.get<any[]>('assets/data.json').subscribe(res => {
-      this.users = res;
-      // console.log('data response', this.users);
-    });
+export class LoginComponent implements OnInit {
 
+  email: string = '';
+  password: string = '';
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {}
+
+  login(): void {
+    if (!this.email || !this.password) {
+      alert("Please enter email and password");
+      return;
+    }
+    const users = JSON.parse(localStorage.getItem('users') as string) as User[];
+
+    const userExist = users.find((user: any) => user.email === this.email && user.password === this.password);
+  
+    if (userExist) {
+      // Store the user data in local storage
+      localStorage.setItem('currentUser', JSON.stringify(userExist) as string);
+      this.router.navigate(['/userpage']);
+      console.log("User exists");
+    } else {
+      alert("User does not exist");
+    }
   }
-  login():void{
-    const userExist = this.users.find(user => user.email === this.email && user.password === this.password);
-
-          if(userExist){
-           
-            
-            // localStorage.setItem('user', JSON.stringify(userExist));
-            this.router.navigate(['/userpage']);
-            console.log("userExist");
-            
-            
-          }else{
-            alert("user not exist");
-          }
-         
-      }
-      signUp() {
-        this.router.navigate(['/signUp']);
-      }
+  
+  signUp(): void {
+    this.router.navigate(['/signUp']);
+  }
 }
